@@ -2,7 +2,7 @@
     "name": "kashi93/vure",
     "license": "MIT",
     "type": "library",
-    "description": "Vure provides a simple starting point for building a SPA (single-page application) using Vue or React with the Laravel framework. The code structure remains unchanged, and Vure can be styled using either Bootstrap or Tailwind. Additionally, Vure includes authentication controllers and views that can be easily customized to fit the needs of your application.",
+    "description": "Vure provides a simple starting point for building a SPA (single-page application) using Vue or React with the Laravel framework. The code structure remains unchanged, and Vure can be styled using either Bootstrap or Tailwind.",
     "keywords": [
         "laravel",
         "auth"
