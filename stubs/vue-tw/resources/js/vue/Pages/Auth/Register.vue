@@ -12,7 +12,7 @@
         <div class="mt-4">
             <InputLabel for="email" value="Email" />
             <TextInput id="email" class="block mt-1 w-full" type="email" name="email" v-model="email"  autocomplete="username" />
-            <InputError :messages="error.name || []" class="mt-2" />
+            <InputError :messages="error.email || []" class="mt-2" />
         </div>
 
         <!-- Password -->
