@@ -52,14 +52,14 @@ class LoginController extends Controller
    }
 
    public function logout(Request $request)
-    {
-        $request->user()->currentAccessToken()->delete();
-        $cookie = Cookie::forget("jwt");
+   {
+      $request->user()->currentAccessToken()->delete();
+      $cookie = Cookie::forget("jwt");
 
-        return response([
-            "status" => "success",
-            "message" => "",
-            "data" => []
-        ])->withCookie($cookie);
-    }
+      return response([
+         "status" => "success",
+         "message" => "",
+         "data" => []
+      ])->withCookie($cookie);
+   }
 }

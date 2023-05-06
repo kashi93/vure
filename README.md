@@ -40,7 +40,7 @@ npm install
 npm run dev / npm run build
 ```
 
-## Vue With Tailwind (Coming Soon)
+## Vue With Tailwind
 
 ```
 php artisan vure:install vue-tw

@@ -49,7 +49,7 @@ class InstallCommand extends Command
                 break;
 
             case 'vue-tw':
-                return $this->warn("Coming soon");
+                return (new InstallVueTailWindStack())->install($this);
                 break;
 
             case 'react-bs':
