@@ -34,7 +34,7 @@ class InstallVueTailWindStack
 
         copy(__DIR__ . '/../../stubs/vue-tw/tsconfig.json', base_path('tsconfig.json'));
         copy(__DIR__ . '/../../stubs/vue-tw/vite.config.js', base_path('vite.config.js'));
-        copy(__DIR__ . '/../../stubs/vue-tw/postcss.config.js', base_path('postcss.config.js'));
+        copy(__DIR__ . '/../../stubs/vue-tw/postcss.config.cjs', base_path('postcss.config.cjs'));
         copy(__DIR__ . '/../../stubs/vue-tw/tailwind.config.js', base_path('tailwind.config.js'));
 
         $command->info('Installing and building Node dependencies.');

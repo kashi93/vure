@@ -26,7 +26,19 @@ export default function Register() {
 
     switch (response.status) {
       case 200:
-        return navigate("/home");
+        const response = await guestAxios.post("login", {
+          email,
+          password
+        });
+        
+        switch (response.status) {
+          case 200:
+            return navigate("/home");
+          default:
+            return navigate("/login");
+
+        }
+
       case 422:
         setError(setFormError(response))
         return false;

@@ -6,10 +6,12 @@ import SecondaryButton from "@/components/SecondaryButton"
 import TextInput from "@/components/TextInput"
 import { setFormError } from "@/helpers"
 import authAxios from "@/helpers/authAxios"
+import { useAuthenticateContext } from "@/middleware/Authenticate"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 export default function DeleteUserForm() {
+    const { setUser } = useAuthenticateContext();
     const navigate = useNavigate();
     const [openModal, setOpenModal] = useState(false);
     const modalHandler = () => setOpenModal((current: boolean) => !current);
@@ -22,6 +24,7 @@ export default function DeleteUserForm() {
 
         switch (response.status) {
             case 200:
+                setUser(null);
                 return navigate("/", { replace: true });
             case 422:
                 setError(setFormError(response))
