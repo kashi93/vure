@@ -57,7 +57,7 @@ class InstallCommand extends Command
                 break;
 
             case 'react-tw':
-                return $this->warn("Coming soon");
+                return (new InstallReactTailWindStack())->install($this);
                 break;
             
             default:
