@@ -60,7 +60,7 @@ npm install
 npm run dev / npm run build
 ```
 
-## React With Tailwind (Coming Soon)
+## React With Tailwind
 
 ```
 php artisan vure:install react-tw
