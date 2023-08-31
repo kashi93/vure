@@ -82,7 +82,7 @@ class InstallVueTailWindStack
                 "vite" => "^4.1.4",
                 "vue-tsc" => "^1.2.0",
                 "bootstrap" => "^5.2.3",
-                "sass" => "^1.62.1",
+                "sass" => "1.32.13",
                 "@tailwindcss/forms" => "^0.5.3",
                 "autoprefixer" => "^10.4.12",
                 "postcss" => "^8.4.18",
@@ -100,7 +100,7 @@ class InstallVueTailWindStack
             $package["devDependencies"]["typescript"] = "~4.8.4";
             $package["devDependencies"]["vue-tsc"] = "^1.2.0";
             $package["devDependencies"]["bootstrap"] = "^5.2.3";
-            $package["devDependencies"]["sass"] = "^1.62.1";
+            $package["devDependencies"]["sass"] = "1.32.13";
 
             $package["devDependencies"]["@tailwindcss/forms"] = "^0.5.3";
             $package["devDependencies"]["autoprefixer"] = "^10.4.12";

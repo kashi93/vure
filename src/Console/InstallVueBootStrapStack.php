@@ -11,23 +11,23 @@ class InstallVueBootStrapStack
 {
 
     public function install(Command $command)
-    {   
+    {
         // NPM Packages
         $command->info('Updating Node dependencies.');
         $this->updateNodePackages();
-        
+
         // Controllers
         $command->info('Installing controllers.');
         $this->updateController();
-        
+
         // middleware
         $command->info('Installing middleware.');
         $this->updateMiddleware();
-        
+
         // Routes
         $command->info('Installing routes.');
         $this->updateRoutes();
-        
+
         // Resources
         $command->info('Installing resources.');
         $this->updateResources();
@@ -38,11 +38,11 @@ class InstallVueBootStrapStack
         $command->info('Installing and building Node dependencies.');
 
         if (file_exists(base_path('pnpm-lock.yaml'))) {
-            $this->runCommands($command,['pnpm install', 'pnpm run build']);
+            $this->runCommands($command, ['pnpm install', 'pnpm run build']);
         } elseif (file_exists(base_path('yarn.lock'))) {
-            $this->runCommands($command,['yarn install', 'yarn run build']);
+            $this->runCommands($command, ['yarn install', 'yarn run build']);
         } else {
-            $this->runCommands($command,['npm install', 'npm run build']);
+            $this->runCommands($command, ['npm install', 'npm run build']);
         }
 
         $command->info('Vure vue bootstrap scaffolding installed successfully.');
@@ -80,7 +80,7 @@ class InstallVueBootStrapStack
                 "vite" => "^4.1.4",
                 "vue-tsc" => "^1.2.0",
                 "bootstrap" => "^5.2.3",
-                "sass"=> "^1.62.1"
+                "sass" => "1.32.13"
             ];
         } else {
             if (!isset($package["devDependencies"]["axios"])) {
@@ -94,7 +94,7 @@ class InstallVueBootStrapStack
             $package["devDependencies"]["typescript"] = "~4.8.4";
             $package["devDependencies"]["vue-tsc"] = "^1.2.0";
             $package["devDependencies"]["bootstrap"] = "^5.2.3";
-            $package["devDependencies"]["sass"] = "^1.62.1";
+            $package["devDependencies"]["sass"] = "1.32.13";
         }
 
         file_put_contents(
@@ -132,7 +132,7 @@ class InstallVueBootStrapStack
      * @param  array  $commands
      * @return void
      */
-    protected function runCommands(Command $command,$commands)
+    protected function runCommands(Command $command, $commands)
     {
         $process = Process::fromShellCommandline(implode(' && ', $commands), null, null, null, null);
 
@@ -140,12 +140,12 @@ class InstallVueBootStrapStack
             try {
                 $process->setTty(true);
             } catch (RuntimeException $e) {
-                $command->writeln('  <bg=yellow;fg=black> WARN </> '.$e->getMessage().PHP_EOL);
+                $command->writeln('  <bg=yellow;fg=black> WARN </> ' . $e->getMessage() . PHP_EOL);
             }
         }
 
-        $process->run(function ($type, $line) use($command) {
-            $command->write('    '.$line);
+        $process->run(function ($type, $line) use ($command) {
+            $command->write('    ' . $line);
         });
     }
 }
