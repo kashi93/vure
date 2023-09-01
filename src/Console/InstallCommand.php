@@ -3,14 +3,8 @@
 namespace Kashi93\Vure\Console;
 
 use Illuminate\Console\Command;
-use Illuminate\Filesystem\Filesystem;
-use Illuminate\Support\Str;
-use RuntimeException;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Finder\Finder;
-use Symfony\Component\Process\PhpExecutableFinder;
-use Symfony\Component\Process\Process;
 
 class InstallCommand extends Command
 {
@@ -58,6 +52,10 @@ class InstallCommand extends Command
 
             case 'react-tw':
                 return (new InstallReactTailWindStack())->install($this);
+                break;
+
+            case 'react-bs':
+                return (new InstallReactBootStrapStack())->install($this);
                 break;
             
             default:

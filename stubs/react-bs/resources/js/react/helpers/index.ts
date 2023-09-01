@@ -1,4 +1,5 @@
 import type { AxiosResponse } from "axios";
+import { CssScope as _CssScope } from "./CssScope";
 
 export const baseURL = `${window.location.origin}/api/`;
 

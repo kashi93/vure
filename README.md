@@ -50,7 +50,7 @@ npm install
 npm run dev / npm run build
 ```
 
-## React With Bootstrap (Coming Soon)
+## React With Bootstrap
 
 ```
 php artisan vure:install react-bs

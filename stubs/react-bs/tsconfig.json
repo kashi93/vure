@@ -1,0 +1,17 @@
+{
+  "include": ["./resources/js/react/**/*", "./resources/js/vue/**/*.tsx"],
+  "compilerOptions": {
+    "module": "ESNext",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./resources/js/react/*"]
+    },
+    "allowSyntheticDefaultImports":true,
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+  },
+}

@@ -7,7 +7,7 @@ use Illuminate\Filesystem\Filesystem;
 use Symfony\Component\Process\Process;
 use RuntimeException;
 
-class InstallReactTailWindStack
+class InstallReactBootStrapStack
 {
 
     public function install(Command $command)
@@ -32,10 +32,8 @@ class InstallReactTailWindStack
         $command->info('Installing resources.');
         $this->updateResources();
 
-        copy(__DIR__ . '/../../stubs/react-tw/tsconfig.json', base_path('tsconfig.json'));
-        copy(__DIR__ . '/../../stubs/react-tw/vite.config.js', base_path('vite.config.js'));
-        copy(__DIR__ . '/../../stubs/react-tw/postcss.config.cjs', base_path('postcss.config.cjs'));
-        copy(__DIR__ . '/../../stubs/react-tw/tailwind.config.js', base_path('tailwind.config.js'));
+        copy(__DIR__ . '/../../stubs/react-bs/tsconfig.json', base_path('tsconfig.json'));
+        copy(__DIR__ . '/../../stubs/react-bs/vite.config.js', base_path('vite.config.js'));
 
         $command->info('Installing and building Node dependencies.');
 
@@ -47,7 +45,7 @@ class InstallReactTailWindStack
             $this->runCommands($command, ['npm install', 'npm run build']);
         }
 
-        $command->info('Vure react tailwind scaffolding installed successfully.');
+        $command->info('Vure react bootstrap scaffolding installed successfully.');
     }
 
     private function updateNodePackages()
@@ -74,18 +72,16 @@ class InstallReactTailWindStack
 
         if (!isset($package["devDependencies"])) {
             $package["devDependencies"] = [
-                "@types/node" => "^20.1.0",
+                "@types/node" => "^20.5.7",
+                "@types/react" => "^18.2.15",
+                "@types/react-dom" => "^18.2.7",
+                "@vitejs/plugin-react" => "^4.0.3",
                 "@vitejs/plugin-react-refresh" => "^1.3.6",
-                "@headlessui/react" => "^1.7.14",
-                "@tailwindcss/forms" => "^0.5.3",
-                "@types/react" => "^18.2.6",
-                "@types/react-dom" => "^18.2.4",
-                "@vitejs/plugin-react" => "^4.0.0",
                 "autoprefixer" => "^10.4.12",
                 "axios" => "^1.1.2",
-                "laravel-vite-plugin" => "^0.7.5",
-                "postcss" => "^8.4.18",
-                "tailwindcss" => "^3.2.1",
+                "bootstrap" => "^5.3.1",
+                "laravel-vite-plugin" => "^0.8.0",
+                "sass" => "1.32.13",
                 "typescript" => "^5.0.2",
                 "vite" => "^4.0.0"
             ];
@@ -94,17 +90,15 @@ class InstallReactTailWindStack
                 $package["devDependencies"]["axios"] = "^1.1.2";
             }
 
-            $package["devDependencies"]["@types/node"] = "^20.1.0";
+            $package["devDependencies"]["@types/node"] = "^20.5.7";
+            $package["devDependencies"]["@types/react"] = "^18.2.15";
+            $package["devDependencies"]["@types/react-dom"] = "^18.2.7";
+            $package["devDependencies"]["@vitejs/plugin-react"] = "^4.0.3";
             $package["devDependencies"]["@vitejs/plugin-react-refresh"] = "^1.3.6";
-            $package["devDependencies"]["@headlessui/react"] = "^1.7.14";
-            $package["devDependencies"]["@tailwindcss/forms"] = "^0.5.3";
-            $package["devDependencies"]["@types/react"] = "^18.2.6";
-            $package["devDependencies"]["@types/react-dom"] = "^18.2.4";
-            $package["devDependencies"]["@vitejs/plugin-react"] = "^4.0.0";
             $package["devDependencies"]["autoprefixer"] = "^10.4.12";
-            $package["devDependencies"]["laravel-vite-plugin"] = "^0.7.5";
-            $package["devDependencies"]["postcss"] = "^8.4.18";
-            $package["devDependencies"]["tailwindcss"] = "^3.2.1";
+            $package["devDependencies"]["bootstrap"] = "^5.3.1";
+            $package["devDependencies"]["laravel-vite-plugin"] = "^0.8.0";
+            $package["devDependencies"]["sass"] = "1.32.13";
             $package["devDependencies"]["typescript"] = "^5.0.2";
             $package["devDependencies"]["vite"] = "^4.0.0";
         }
@@ -135,7 +129,7 @@ class InstallReactTailWindStack
 
     private function updateResources()
     {
-        (new Filesystem)->copyDirectory(__DIR__ . '/../../stubs/react-tw/resources', resource_path());
+        (new Filesystem)->copyDirectory(__DIR__ . '/../../stubs/react-bs/resources', resource_path());
     }
 
     /**
