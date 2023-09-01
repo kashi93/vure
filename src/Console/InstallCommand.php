@@ -46,10 +46,6 @@ class InstallCommand extends Command
                 return (new InstallVueTailWindStack())->install($this);
                 break;
 
-            case 'react-bs':
-                return $this->warn("Coming soon");
-                break;
-
             case 'react-tw':
                 return (new InstallReactTailWindStack())->install($this);
                 break;
